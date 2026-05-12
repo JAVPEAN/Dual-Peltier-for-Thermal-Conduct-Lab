@@ -50,4 +50,4 @@ Where:
 ---
 
 ## :electric_plug:Wiring Diagram 
-![Wiring_Diagram.jpg]()
+![Wiring_Diagram](Wiring_Diagram.jpg)
