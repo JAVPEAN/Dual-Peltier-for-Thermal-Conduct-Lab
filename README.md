@@ -1,9 +1,4 @@
-# Define the content for the README.md file
-readme_content = """# Peltier Thermal Conduction Lab 🌡️⚡
-
-A mechatronics project designed to demonstrate and visualize the principles of heat transfer. This system uses **Peltier modules** controlled via **relays** to create controlled temperature gradients, which are then captured and analyzed using a **thermal camera**.
-
-##🚀 Project Overview
+## 🚀Project Overview
 
 The core objective of this project is to bridge the gap between theoretical thermodynamics and visual observation. While traditional heat transfer labs rely on numerical data from thermometers, this setup provides a **real-time visual heatmap** of thermal energy moving through solid mediums.
 
@@ -15,11 +10,12 @@ By toggling high-current Peltier (Thermo-Electric Cooler) modules through a rela
 
 | Component | Description |
 | :--- | :--- |
-| **Peltier Modules** | 2x TEC1-12706 (or similar) for heating and cooling. |
+| **Peltier Modules** | 2x RC12-8L (or similar) for heating and cooling. |
 | **Relay Module** | Dual-channel relay to handle high-current switching. |
-| **Microcontroller** | Arduino Uno / ESP32 / Raspberry Pi (for logic control). |
-| **Thermal Camera** | FLIR Lepton / AMG8833 / Seek Thermal for visualization. |
-| **Power Supply** | 12V DC (sufficient for Peltier current draw). |
+| **Power Meter** | 2x for measure current and voltage|
+| **Microcontroller** | Raspberry Pi Pico (for logic control). |
+| **Thermal Camera** | Seek Thermal for visualization. |
+| **Power Supply** | 24V DC (sufficient for Peltier current draw). |
 | **Heatsinks** | Aluminum fins/fans to manage the "waste" side of the Peltier. |
 
 ---
@@ -53,4 +49,5 @@ Where:
 
 ---
 
-## 📂 Repository Structure
+## :electric_plug:Wiring Diagram 
+![Wiring_Diagram.jpg]()
