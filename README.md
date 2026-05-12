@@ -53,3 +53,4 @@ Where:
 ![Wiring_Diagram](Wiring_Diagram.jpg)
 
 ## :camera:System Setup
+![](Picture/IMG_20260421_170421122.jpg)
