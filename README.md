@@ -51,3 +51,5 @@ Where:
 
 ## :electric_plug:Wiring Diagram 
 ![Wiring_Diagram](Wiring_Diagram.jpg)
+
+## :camera:System Setup
