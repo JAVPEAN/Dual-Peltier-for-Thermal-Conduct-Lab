@@ -3,7 +3,7 @@ readme_content = """# Peltier Thermal Conduction Lab 🌡️⚡
 
 A mechatronics project designed to demonstrate and visualize the principles of heat transfer. This system uses **Peltier modules** controlled via **relays** to create controlled temperature gradients, which are then captured and analyzed using a **thermal camera**.
 
-## 🚀 Project Overview
+##🚀 Project Overview
 
 The core objective of this project is to bridge the gap between theoretical thermodynamics and visual observation. While traditional heat transfer labs rely on numerical data from thermometers, this setup provides a **real-time visual heatmap** of thermal energy moving through solid mediums.
 
