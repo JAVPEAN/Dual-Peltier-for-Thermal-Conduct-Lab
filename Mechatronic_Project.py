@@ -1,24 +1,47 @@
-from picozero import Pot, Motor
+from picozero import OutputDevice
+import sys
+import select
 from time import sleep
 
-# Setup Potentiometers on ADC pins
-# GPIO 26 is ADC0, GPIO 29 is ADC3
-pot1 = Pot(26)
-pot2 = Pot(29)
+# Initialize Relays
+relay1 = OutputDevice(7)
+relay2 = OutputDevice(8)
 
+# Set up the console poll (Non-blocking standard input)
+poll_obj = select.poll()
+poll_obj.register(sys.stdin, select.POLLIN)
 
-Heater1 = Motor(forward=8, backward=9)
-Heater2 = Motor(forward=10, backward=11)
+print("System ready. Type '1' for Relay 1, '2' for Relay 2, '0' for OFF. Press Enter.")
+print("Press Ctrl+C to stop.")
 
-print("System Initialized. Turn the potentiometers to control temperatures.")
+def check_user_input():
+    # poll(0) checks immediately and returns without waiting
+    if poll_obj.poll(0):
+        # Read the character the user typed
+        char = sys.stdin.readline().strip()
+        
+        if char == '1':
+            relay1.toggle()
+            print("Relay 1 ->", "ON" if relay1.is_active else "OFF")
+        elif char == '2':
+            relay2.toggle()
+            print("Relay 2 ->", "ON" if relay2.is_active else "OFF")
+        elif char == '0':
+            relay1.off()
+            relay2.off()
+            print("All Relays -> OFF")
 
-while True:
-    # Read values from potentiometers (returns a float between 0.0 and 1.0)
-    temp1 = pot1.value #need datasheet to calibration
-    temp2 = pot2.value
-    
-    Heater1.value = temp1
-    Heater2.value = temp2
-    
-    # Small delay to keep the loop stable
-    sleep(0.01)
+try:
+    # Main program loop
+    while True:
+        # 1. Check for user keyboard input
+        check_user_input()
+        
+        # 2. Do your other tasks here (e.g., read sensors, update LCD)
+        # We use a tiny sleep just to prevent the loop from maxing out the CPU 100%
+        sleep(0.1)
+
+except KeyboardInterrupt:
+    relay1.off()
+    relay2.off()
+    print("\nSystem halted.")
